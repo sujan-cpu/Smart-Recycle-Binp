@@ -1,0 +1,92 @@
+# ♻️ Smart Recycle Bin – Hardware Documentation
+
+## 1. Introduction
+
+The hardware part of the Smart Recycle Bin project is designed to automate waste disposal using sensors, a microcontroller, and a motor-controlled lid.
+
+The system is intended to work with the machine learning software to allow recyclable items to be detected before the bin opens.
+
+## 2. Hardware Components
+
+| No. | Component | Purpose |
+|---|---|---|
+| 1 | Arduino Uno | Controls hardware operations |
+| 2 | HC-SR04 Ultrasonic Sensor | Detects objects or measures distance |
+| 3 | Servo Motor (SG90) | Opens and closes the bin lid |
+| 4 | Camera / Webcam | Captures waste images |
+| 5 | Laptop / PC | Runs the machine learning model |
+| 6 | 5V Power Supply | Supplies power to the components |
+| 7 | Connecting Wires | Connects electronic components |
+| 8 | Recycle Bin | Holds recyclable waste |
+
+*Note: This is the proposed hardware configuration. Confirm the components against your actual prototype.*
+
+## 3. Hardware Connection
+
+### Arduino Uno Pin Configuration
+
+| Component | Arduino Pin |
+|---|---|
+| Ultrasonic VCC | 5V |
+| Ultrasonic GND | GND |
+| Ultrasonic TRIG | D9 |
+| Ultrasonic ECHO | D10 |
+| Servo Signal | D6 |
+| Servo VCC | External regulated 5V |
+| Servo GND | Common GND |
+
+### Camera Connection
+
+The camera is connected to the laptop or computer through USB. Python uses the camera to capture images for machine learning classification.
+
+### Power Supply
+
+- Arduino Uno can receive power through USB.
+- The servo motor should use a suitable external regulated 5V supply.
+- Connect the external supply ground to Arduino GND.
+- Do not power a high-current servo directly from the Arduino 5V pin.
+
+## 4. Working Principle
+
+1. The ultrasonic sensor detects an object near the bin.
+2. The camera captures an image of the object.
+3. The Python machine learning model analyzes the image.
+4. The model identifies whether the object is a bottle or not.
+5. The classification result can be communicated to the Arduino.
+6. If the object is accepted, the servo motor opens the bin lid.
+7. After disposal, the lid closes automatically.
+
+The camera-based classification and Arduino communication must be integrated for the complete automated workflow.
+
+## 5. Circuit Diagram
+
+The circuit diagram illustrates the proposed connection between the Arduino Uno, ultrasonic sensor, servo motor, camera, and power supply.
+
+Add your circuit image here:
+
+```markdown
+![Smart Recycle Bin Circuit Diagram](images/circuit_diagram.png)
+```
+
+## 6. Hardware Testing
+
+The hardware should be tested for:
+
+- Correct sensor readings.
+- Accurate object detection distance.
+- Proper servo motor movement.
+- Stable power supply.
+- Correct wiring connections.
+- Reliable opening and closing of the bin lid.
+
+## 7. Safety Precautions
+
+- Check the wiring before supplying power.
+- Use the correct voltage for each component.
+- Avoid short circuits.
+- Use a separate power supply for the servo when necessary.
+- Ensure all components have a common ground where required.
+
+## 8. Conclusion
+
+The hardware system provides the physical foundation for the Smart Recycle Bin. By combining sensors, a microcontroller, a camera, and a motor, the project aims to make waste disposal more intelligent and automatic.
