@@ -1,0 +1,3 @@
+Copy your exported Teachable Machine files into this folder:
+keras_model.h5
+labels.txt
